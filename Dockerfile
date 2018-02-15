@@ -4,10 +4,9 @@ MAINTAINER Thomas Hjert <thomas.hjert@knowit.se>
 ENV TERM=xterm-256color
 
 #Set mirrors to SE
-
 RUN sed -i "s/http:\/\/archive./http:\/\/se.archive./g" /etc/apt/sources.list
 
-# Install Phython runtime
+# Install Ansible
 
 RUN apt-get update -qy && \
     apt-get install -qy software-properties-common && \
@@ -16,8 +15,9 @@ RUN apt-get update -qy && \
     apt-get install -qy ansible
 
 # Copy baked in playbooks
-COPY ansible /ansible
+###COPY ansible /ansible
 COPY ansible/probe.yml /ansible/probe.yml
+COPY ansible/probe.yml /ansible/site.yml
 
 VOLUME /ansible
 WORKDIR /ansible
