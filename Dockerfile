@@ -20,24 +20,25 @@ RUN apt-get update -qy && \
     apt-get install -qy  sshpass && \
     apt-get install -qy  git && \
     apt-get install -qy  python && \
-    apt-get install -qy  py-boto && \
-    apt-get install -qy  py-dateutil && \
-    apt-get install -qy  py-httplib2 && \
-    apt-get install -qy  py-jinja2 && \
-    apt-get install -qy  py-paramiko && \
-    apt-get install -qy  py-pip && \
-    apt-get install -qy  py-setuptools && \
-    apt-get install -qy  py-yaml && \
-    apt-get install -qy  ca-certificates
+    apt-get install -qy  python && \
+    apt-get install -qy  python-virtualenv && \
+    apt-get install -qy  libpython2.7 && \
+    apt-get install -qy  python-mysqldb
 
 # Copy baked in playbooks
 COPY ansible /ansible
-COPY ansible/probe.yml /ansible/probe.yml
+###COPY ansible/probe.yml /ansible/probe.yml
+
+ 
+RUN echo "[local]" >> /etc/ansible/hosts && \
+  echo "localhost" >> /etc/ansible/hosts
 
 VOLUME /ansible
-WORKDIR /ansible
+WORKDIR /ansible/ansible
 
 # Add entrypoint script
 
 ENTRYPOINT ["ansible-playbook"]
-#CMD ["site.yml"]
+CMD ["probe.yml"]
+###ENTRYPOINT ["/bin/ls","-R","/ansible"]
+###CMD ["localhost"]
