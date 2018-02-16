@@ -34,11 +34,11 @@ RUN echo "[local]" >> /etc/ansible/hosts && \
   echo "localhost" >> /etc/ansible/hosts
 
 VOLUME /ansible
-WORKDIR /ansible/ansible
+WORKDIR /ansible
 
 # Add entrypoint script
 
 ENTRYPOINT ["ansible-playbook"]
-CMD ["probe.yml"]
+CMD ["site.yml"]
 ###ENTRYPOINT ["/bin/ls","-R","/ansible"]
 ###CMD ["localhost"]
