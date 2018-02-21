@@ -16,8 +16,8 @@ RUN apt-get update -qy && \
     apt-get install -qy  python && \
     apt-get install -qy  python-virtualenv && \
     apt-get install -qy  libpython2.7 && \
-    apt-get install -qy  bash ###&& \
-###    apt-get install -qy  curl && \
+    apt-get install -qy  bash && \
+    apt-get install -qy  curl ###&& \
 ###    apt-get install -qy  tar && \
 ###    apt-get install -qy  openssh-client && \
 ###    apt-get install -qy  sshpass && \
