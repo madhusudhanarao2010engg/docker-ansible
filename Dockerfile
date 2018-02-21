@@ -12,7 +12,11 @@ RUN apt-get update -qy && \
     apt-get install -qy software-properties-common && \
     apt-add-repository -y ppa:ansible/ansible && \
     apt-get update -qy  && \
-    apt-get install -qy ansible && ###\
+    apt-get install -qy ansible && \
+    apt-get install -qy  python && \
+    apt-get install -qy  python ###&& \
+###    apt-get install -qy  python-virtualenv && \
+###    apt-get install -qy  libpython2.7 && \
 ###    apt-get install -qy  bash && \
 ###    apt-get install -qy  curl && \
 ###    apt-get install -qy  tar && \
@@ -23,7 +27,7 @@ RUN apt-get update -qy && \
 ###    apt-get install -qy  python && \
 ###    apt-get install -qy  python-virtualenv && \
 ###    apt-get install -qy  libpython2.7 && \
-    apt-get install -qy  python-mysqldb
+###    apt-get install -qy  python-mysqldb
 
 # Copy baked in playbooks
 COPY ansible /ansible
