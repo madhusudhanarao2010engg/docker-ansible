@@ -29,7 +29,7 @@ RUN apt-get update -qy && \
 
 # Copy baked in playbooks
 COPY ansible /ansible
-###COPY ansible/probe.yml /ansible/probe.yml
+COPY ansible/probe.yml /ansible/probe.yml
 
  
 ###RUN echo "[local]" >> /etc/ansible/hosts && \
